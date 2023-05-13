@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "./Calculator.scss";
 import useWindowSize from "../../hooks/useWindowSize";
 import ConfettiExplosion from "react-confetti-explosion";
-import { set } from "adminjs/types/src/utils/flat/set";
 
 const Calculator = () => {
   // Constants
@@ -16,7 +15,6 @@ const Calculator = () => {
   const [previousNumber, setPreviousNumber] = useState("0");
   const [operator, setOperator] = useState("");
   const [isTimeForParty, setIsTimeForParty] = useState(false);
-  const [isASadParty, setIsASadParty] = useState(false);
 
   // Helper functions
   const handleNumber = (value: string) => {
@@ -45,20 +43,15 @@ const Calculator = () => {
     switch (operator) {
       case "+":
         setCurrentNumber((previous + current).toString());
-        setIsTimeForParty(true);
         break;
       case "-":
         setCurrentNumber((previous - current).toString());
-        setIsTimeForParty(true);
         break;
       case "*":
         setCurrentNumber((previous * current).toString());
-        setIsTimeForParty(true);
         break;
       case "/":
         if (current === 0) {
-          setIsASadParty(true);
-          setIsTimeForParty(true);
           setCurrentNumber(":(");
           setOperator("");
           setPreviousNumber("0");
@@ -71,6 +64,7 @@ const Calculator = () => {
     }
     setOperator("");
     setPreviousNumber("0");
+    setIsTimeForParty(true);
   };
 
   const handleClear = () => {
@@ -179,18 +173,6 @@ const Calculator = () => {
                 setIsTimeForParty(false);
               }}
               duration={3000}
-              colors={
-                !isASadParty
-                  ? ["#808080", "#A9A9A9", "#C0C0C0", "#D3D3D3", "#DCDCDC"]
-                  : [
-                      "#FF0000",
-                      "#FF7F00",
-                      "#FFFF00",
-                      "#00FF00",
-                      "#0000FF",
-                      "#4B0082"
-                    ]
-              }
             />
           )}
         </div>
