@@ -1,0 +1,67 @@
+.calculator {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  height: 600%;
+  border-radius: 8px;
+  background: black;
+  box-shadow: 0px 0px 20px 0px #aaa;
+  display: flex;
+  flex-direction: column;
+
+  &_display {
+    max-width: 420px;
+    height: 130px;
+    min-height: 130px;
+    color: white;
+    background: #1c191c;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+    padding: 0 1rem;
+    transition: font-size 0.2s ease-in-out;
+  }
+  &_keypad {
+    width: 100%;
+    display: flex;
+  }
+  &_key {
+    width: 100%;
+    height: 80px;
+    border-top: 1px solid #777;
+    border-right: 1px solid #666;
+    text-align: center;
+    &.key-0 {
+      width: 200%;
+    }
+  }
+}
+
+.input_keys {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.operator_keys {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.function_keys {
+  width: 100%;
+  display: flex;
+}
+
+.digit_keys {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1px;
+  width: 100%;
+  height: 100%;
+}
